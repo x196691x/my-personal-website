@@ -1,0 +1,376 @@
+:root {
+  --ink: #131314;
+  --muted: #a5a9ae;
+  --line: #d2d8dd;
+  --content-width: 896px;
+  --page-gutter: 48px;
+  --header-height: 129px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+  font-synthesis: none;
+  font-weight: 500;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  padding-top: var(--header-height);
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2 {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  padding: 32px var(--page-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+}
+
+.site-logo {
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -0.48px;
+  white-space: nowrap;
+}
+
+.telegram-link {
+  padding: 19px 27px;
+  border: 1px solid var(--ink);
+  border-radius: 200px;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.36px;
+  white-space: nowrap;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.telegram-link:hover,
+.telegram-link:focus-visible {
+  color: #fff;
+  background: var(--ink);
+  outline: none;
+}
+
+.portfolio {
+  width: min(var(--content-width), calc(100% - 2 * var(--page-gutter)));
+  margin: 0 auto;
+  padding-bottom: 32px;
+}
+
+.intro {
+  height: 217px;
+}
+
+.intro h1,
+.text-block > p:not(.eyebrow),
+.project-meta h2 {
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -0.48px;
+  font-weight: 500;
+}
+
+.intro h1 {
+  height: 144px;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro-role {
+  padding-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.intro-role p:first-child {
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -0.48px;
+}
+
+.intro-role p:last-child,
+.project-meta > p,
+.eyebrow {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.36px;
+}
+
+.project-card {
+  display: block;
+  margin-top: 128px;
+  border-radius: 1px;
+}
+
+.project-card img,
+.case-image {
+  width: 100%;
+  height: auto;
+}
+
+.project-card img {
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+.project-card:hover img {
+  transform: scale(0.995);
+  opacity: 0.92;
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 8px;
+}
+
+.project-meta {
+  margin-top: 44px;
+}
+
+.project-meta h2 {
+  margin-top: 8px;
+}
+
+.wip-image {
+  width: 100%;
+  height: auto;
+  margin-top: 128px;
+}
+
+.case-page {
+  padding-bottom: 128px;
+}
+
+.case-content {
+  width: min(var(--content-width), calc(100% - 2 * var(--page-gutter)));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+
+.case-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.case-intro h1 {
+  font-size: 64px;
+  line-height: 1.16;
+  letter-spacing: -1.28px;
+  font-weight: 500;
+}
+
+.case-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hypothesis {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.hypothesis .text-block {
+  gap: 12px;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --page-gutter: 32px;
+    --header-height: 112px;
+  }
+
+  .site-header {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .portfolio {
+    padding-top: 16px;
+  }
+
+  .project-card {
+    margin-top: 96px;
+  }
+
+  .wip-image {
+    margin-top: 96px;
+  }
+
+  .case-content {
+    gap: 80px;
+    padding-top: 16px;
+  }
+
+  .case-intro {
+    gap: 56px;
+  }
+
+  .case-intro h1 {
+    font-size: clamp(48px, 7vw, 64px);
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --page-gutter: 20px;
+    --header-height: 88px;
+  }
+
+  .site-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .site-logo {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.36px;
+  }
+
+  .telegram-link {
+    padding: 11px 15px;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.26px;
+  }
+
+  .portfolio {
+    padding-top: 20px;
+  }
+
+  .intro {
+    height: auto;
+  }
+
+  .intro h1,
+  .text-block > p:not(.eyebrow),
+  .project-meta h2 {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.4px;
+  }
+
+  .intro h1 {
+    height: auto;
+    padding-bottom: 32px;
+  }
+
+  .intro-role {
+    padding-top: 24px;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .intro-role p:first-child {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.36px;
+  }
+
+  .intro-role p:last-child,
+  .project-meta > p,
+  .eyebrow {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.28px;
+  }
+
+  .intro-role p:last-child {
+    text-align: right;
+  }
+
+  .project-card {
+    margin-top: 72px;
+  }
+
+  .wip-image {
+    margin-top: 72px;
+  }
+
+  .project-meta {
+    margin-top: 24px;
+  }
+
+  .project-meta h2 {
+    margin-top: 6px;
+  }
+
+  .case-page {
+    padding-bottom: 72px;
+  }
+
+  .case-content {
+    padding-top: 20px;
+    gap: 64px;
+  }
+
+  .case-intro {
+    gap: 44px;
+  }
+
+  .case-intro h1 {
+    font-size: 40px;
+    line-height: 1.12;
+    letter-spacing: -0.8px;
+  }
+
+  .case-summary {
+    gap: 32px;
+  }
+
+  .hypothesis {
+    gap: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .telegram-link,
+  .project-card img {
+    transition: none;
+  }
+}
