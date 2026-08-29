@@ -384,6 +384,10 @@ img {
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--card-shadow);
   overscroll-behavior-inline: contain;
   scrollbar-color: var(--muted) transparent;
   scrollbar-width: thin;
@@ -391,7 +395,7 @@ img {
 }
 
 .table-scroll:focus-visible {
-  border-radius: 4px;
+  border-radius: 24px;
   outline: 2px solid var(--ink);
   outline-offset: 4px;
 }
@@ -410,9 +414,15 @@ img {
   min-width: 896px;
   border-spacing: 0;
   border-collapse: separate;
+  border-radius: 24px;
   table-layout: fixed;
   background: #fff;
 }
+
+.data-table thead th:first-child { border-top-left-radius: 24px; }
+.data-table thead th:last-child { border-top-right-radius: 24px; }
+.data-table tbody tr:last-child td:first-child { border-bottom-left-radius: 24px; }
+.data-table tbody tr:last-child td:last-child { border-bottom-right-radius: 24px; }
 
 .data-table th,
 .data-table td {
@@ -464,11 +474,6 @@ img {
 .competitor-table td:nth-child(2) { width: 260px; }
 .competitor-table th:nth-child(3),
 .competitor-table td:nth-child(3) { width: 360px; }
-
-.competitor-table thead th:first-child { border-top-left-radius: 24px; }
-.competitor-table thead th:last-child { border-top-right-radius: 24px; }
-.competitor-table tbody tr:last-child td:first-child { border-bottom-left-radius: 24px; }
-.competitor-table tbody tr:last-child td:last-child { border-bottom-right-radius: 24px; }
 
 @media (min-width: 1024px) {
   .audience-table { height: 3368px; }
