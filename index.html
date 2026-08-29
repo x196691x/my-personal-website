@@ -10,34 +10,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body class="portfolio-page">
+  <body class="home-page">
     <header class="site-header">
-      <a class="site-logo" href="index.html">Дмитрий Яковлев</a>
+      <a class="site-logo" href="index.html" aria-label="На главную">Дмитрий Яковлев</a>
       <a class="telegram-link" href="https://t.me/dmitriy_yakovlevv" target="_blank" rel="noreferrer">Написать в Telegram</a>
     </header>
 
-    <main class="portfolio">
-      <section class="intro" aria-labelledby="intro-title">
-        <h1 id="intro-title">
-          Привет! Я продуктовый дизайнер с опытом в B2C SaaS. Проектирую понятный
-          пользовательский опыт и создаю решения, которые помогают пользователям
-          быстрее получать ценность от продукта.
-        </h1>
-        <div class="intro-role">
+    <main class="home-main">
+      <section class="about" aria-labelledby="about-title">
+        <h1 id="about-title">Привет! Я продуктовый дизайнер с опытом B2C SaaS с фокусом на ИИ. Проектирую понятный пользовательский опыт и создаю решения, которые помогают пользователям быстрее получать ценность от продукта.</h1>
+        <div class="about-divider" aria-hidden="true"></div>
+        <div class="role-meta">
           <p>Продуктовый дизайнер</p>
-          <p>48AI, 2024 – сейчас</p>
+          <p>48AI, 2023 – сейчас</p>
         </div>
       </section>
 
-      <a class="project-card" href="case.html" aria-label="Открыть кейс ИИ-инструмента для создания конспектов">
-        <img src="assets/img-1.png" alt="Интерфейс приложения AI Note" width="2688" height="2145">
-        <div class="project-meta">
-          <p>Январь 2026</p>
-          <h2>ИИ-инструмент для создания конспектов</h2>
+      <a class="featured-project" href="case.html" aria-label="Открыть кейс NoteOn">
+        <article class="project-card">
+          <img src="assets/image_01.png" alt="Интерфейсы мобильного приложения NoteOn" width="2688" height="2145">
+          <div class="project-copy">
+            <p class="eyebrow">Январь 2026</p>
+            <h2>ИИ-инструмент для создания конспектов</h2>
+          </div>
+        </article>
+
+        <div class="metrics" aria-label="Метрики проекта">
+          <div class="metric-card"><strong>~ $30 000</strong><span>MRR</span></div>
+          <div class="metric-card"><strong>~ 10 000</strong><span>MAU</span></div>
+          <div class="metric-card"><strong>9.79%</strong><span>конверсия на пэйволле</span></div>
         </div>
       </a>
-
-      <img class="wip-image" src="assets/wip.png" alt="Ворк ин прогресс" width="2688" height="1074">
     </main>
 
     <script src="script.js"></script>
