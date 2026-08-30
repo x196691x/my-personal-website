@@ -435,6 +435,7 @@ img {
   border-bottom: 1px solid var(--line);
   vertical-align: top;
   text-align: left;
+  overflow-wrap: anywhere;
   font-weight: 500;
 }
 
@@ -660,11 +661,6 @@ img {
   .numbered-list li:not(:last-child)::after {
     bottom: -17px;
     left: 32px;
-  }
-
-  .table-scroll {
-    width: calc(100% + var(--page-gutter));
-    padding-right: var(--page-gutter);
   }
 
   .data-table th,
