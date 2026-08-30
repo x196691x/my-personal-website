@@ -543,7 +543,54 @@ img {
   .site-header {
     height: 88px;
     padding-block: 20px;
-    background: #fff;
+    isolation: isolate;
+    background: transparent;
+  }
+
+  .site-header::before,
+  .site-header::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 103px;
+    pointer-events: none;
+  }
+
+  .site-header::before {
+    -webkit-backdrop-filter: blur(32px);
+    backdrop-filter: blur(32px);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      rgb(0 0 0 / 82%) 36%,
+      rgb(0 0 0 / 36%) 72%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      rgb(0 0 0 / 82%) 36%,
+      rgb(0 0 0 / 36%) 72%,
+      transparent 100%
+    );
+  }
+
+  .site-header::after {
+    background: linear-gradient(
+      to bottom,
+      rgb(255 255 255 / 82%) 0%,
+      rgb(255 255 255 / 56%) 42%,
+      rgb(255 255 255 / 20%) 74%,
+      transparent 100%
+    );
+  }
+
+  .site-header > * {
+    position: relative;
+    z-index: 1;
   }
 
   .site-logo {
