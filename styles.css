@@ -391,7 +391,7 @@ img {
   overflow-y: hidden;
   border-radius: 24px;
   background: #fff;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 0 0 1px #dfe4e6, var(--card-shadow);
   overscroll-behavior-inline: contain;
   scrollbar-color: var(--muted) transparent;
   scrollbar-width: thin;
@@ -416,7 +416,6 @@ img {
 .data-table {
   width: 896px;
   min-width: 896px;
-  border: 1px solid #dfe4e6;
   border-spacing: 0;
   border-collapse: separate;
   border-radius: 24px;
