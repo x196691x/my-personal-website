@@ -254,9 +254,7 @@ img {
   .role-section { min-height: 529px; }
   .context-section { min-height: 659px; }
   .research-intro { min-height: 742px; }
-  .research-details { min-height: 6925px; }
   .cjm-intro { min-height: 229px; }
-  .cjm-table { height: 3085px; }
   .problem-section { min-height: 927px; }
   .user-flow-create { min-height: 908px; }
   .user-flow-read { min-height: 2422px; }
@@ -451,12 +449,7 @@ img {
   letter-spacing: -0.36px;
 }
 
-.data-table tbody tr {
-  height: var(--row-height, auto);
-}
-
 .data-table td {
-  height: var(--row-height, auto);
   font-size: 20px;
   line-height: 30px;
   letter-spacing: -0.4px;
@@ -479,9 +472,7 @@ img {
 .competitor-table td:nth-child(3) { width: 360px; }
 
 @media (min-width: 1024px) {
-  .audience-table { height: 3368px; }
   .competitor-analysis { height: 1094px; flex: none; }
-  .competitor-table { height: 650px; }
   .competitor-findings { height: 576px; flex: none; }
   .competitor-findings > p:last-child { min-height: 216px; }
 
