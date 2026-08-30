@@ -271,7 +271,6 @@ img {
   .research-jtbd { height: 457px; flex: none; }
   .research-jtbd .insight-card { height: 156px; }
   .competitor-conclusion { height: 192px; flex: none; }
-  .problem-section > .insight-card { height: 192px; flex: none; }
   .version-mvp .insight-card,
   .version-meetings .insight-card { height: 192px; flex: none; }
   .version-sharing .insight-card { height: 120px; flex: none; }
