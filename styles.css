@@ -371,6 +371,10 @@ img {
   margin-top: 12px;
 }
 
+.research-intro .numbered-list li:first-child {
+  min-height: auto;
+}
+
 .paywall-section .numbered-list li {
   min-height: 0;
 }
