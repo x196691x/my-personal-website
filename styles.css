@@ -411,6 +411,7 @@ img {
 .data-table {
   width: 896px;
   min-width: 896px;
+  border: 1px solid #dfe4e6;
   border-spacing: 0;
   border-collapse: separate;
   border-radius: 24px;
@@ -433,14 +434,11 @@ img {
   font-weight: 500;
 }
 
-.data-table th:first-child,
-.data-table td:first-child {
-  border-left: 1px solid var(--line);
-}
+.data-table tr > :last-child { border-right: 0; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
 
 .data-table thead th {
   height: 47px;
-  border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 18px;
   line-height: 25px;
