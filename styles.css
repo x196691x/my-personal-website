@@ -428,7 +428,7 @@ img {
   padding: 10px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  vertical-align: middle;
+  vertical-align: top;
   text-align: left;
   font-weight: 500;
 }
