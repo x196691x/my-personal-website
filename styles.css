@@ -460,20 +460,22 @@ img {
   letter-spacing: -0.36px;
 }
 
+.data-table tbody th,
 .data-table td {
   font-size: 20px;
   line-height: 30px;
   letter-spacing: -0.4px;
 }
 
-.audience-table th:nth-child(1),
-.audience-table td:nth-child(1) { width: 168px; }
-.audience-table th:nth-child(2),
-.audience-table td:nth-child(2) { width: 239px; }
-.audience-table th:nth-child(3),
-.audience-table td:nth-child(3) { width: 244px; }
-.audience-table th:nth-child(4),
-.audience-table td:nth-child(4) { width: 245px; }
+.audience-table col:nth-child(1) { width: 168px; }
+.audience-table col:nth-child(2) { width: 239px; }
+.audience-table col:nth-child(3) { width: 244px; }
+.audience-table col:nth-child(4) { width: 245px; }
+
+.audience-table__last-group {
+  border-bottom: 0 !important;
+  border-bottom-left-radius: 24px;
+}
 
 .competitor-table th:nth-child(1),
 .competitor-table td:nth-child(1) { width: 276px; }
