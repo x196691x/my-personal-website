@@ -75,8 +75,10 @@
             <p>Дополнительные JTBD по аудиториям:</p>
           </div>
 
-          <div class="table-scroll" tabindex="0" role="region" aria-label="JTBD по аудиториям">
-            <table class="data-table audience-table">
+          <div class="expandable-table" data-expandable-table>
+            <div class="expandable-table__viewport" id="jtbd-table-content">
+              <div class="table-scroll table-scroll--embedded" tabindex="0" role="region" aria-label="JTBD по аудиториям">
+                <table class="data-table audience-table">
               <colgroup><col><col><col><col></colgroup>
               <thead><tr><th>Аудитория</th><th>Job story</th><th>Проблема</th><th>Решение</th></tr></thead>
               <tbody>
@@ -92,7 +94,15 @@
                 <tr><td>Когда у меня накапливается много заметок, я хочу разложить их по темам, чтобы быстро возвращаться к нужным материалам.</td><td>На старте достаточно простого списка, но при регулярном использовании библиотека быстро растёт.</td><td>В более поздней версии добавить папки на главном экране.</td></tr>
                 <tr><td>Когда мне нужно использовать заметку вне приложения, я хочу скачать её в удобном формате, чтобы отправить, сохранить или приложить к другим материалам.</td><td>Не все сценарии находятся внутри приложения. Иногда конспект нужно отправить в чат, приложить к документу или использовать для учёбы.</td><td>Добавить экспортирование в PDF как способ вывести заметку из приложения и сделать её самостоятельным артефактом.</td></tr>
               </tbody>
-            </table>
+                </table>
+              </div>
+            </div>
+            <div class="expandable-table__control">
+              <button class="table-toggle" type="button" aria-expanded="false" aria-controls="jtbd-table-content">
+                <span data-table-toggle-label>Показать больше</span>
+                <span class="table-toggle__icon" aria-hidden="true"></span>
+              </button>
+            </div>
           </div>
 
           <blockquote class="insight-card audience-insight">Стало видно, что у пользователей повторяется один и тот же путь: они сталкиваются с материалом, пытаются быстро понять главное, хотят доверять результату и использовать его дальше. Поэтому первая версия продукта была сфокусирована на базовой ценности: создать заметку с краткими ключевыми поинтами, сохранить её и вернуться к ней позже. Остальные фичи появлялись уже как продолжение найденных job stories.</blockquote>
@@ -139,8 +149,10 @@
           <p>После JTBD и конкурентного анализа я собрал CJM вокруг основного пути: пользователь сталкивается с материалом и хочет быстро превратить его в полезную заметку. CJM нужен, чтобы увидеть, где именно в пути пользователь сталкивается с трением и какие моменты критичны для первого ощущения ценности.</p>
         </section>
 
-        <div class="table-scroll" tabindex="0" role="region" aria-label="Карта пользовательского пути">
-          <table class="data-table cjm-table">
+        <div class="expandable-table" data-expandable-table>
+          <div class="expandable-table__viewport" id="cjm-table-content">
+            <div class="table-scroll table-scroll--embedded" tabindex="0" role="region" aria-label="Карта пользовательского пути">
+              <table class="data-table cjm-table">
             <thead><tr><th>Этап</th><th>Контекст</th><th>Ожидания</th><th>Трения</th><th>Что учесть</th></tr></thead>
             <tbody>
               <tr><td>Пользователь хочет сохранить материал</td><td>Смотрит YouTube-видео, читает сложный текст или участвует во встрече.</td><td>Материал длинный или неудобный для ручной обработки.</td><td>Чаще выбирает привычное действие: скриншот, Telegram или Apple Notes.</td><td>Точка входа должна быть простой. Продукт не должен ощущаться как сложный инструмент.</td></tr>
@@ -153,7 +165,15 @@
               <tr><td>Пользователь возвращается к заметкам позже</td><td>Накапливаются заметки по разным материалам.</td><td>Быстро найти нужный материал.</td><td>Со временем в простом списке становится трудно ориентироваться.</td><td>Добавить поиск и папки.</td></tr>
               <tr><td>Пользователь сталкивается с ограничением бесплатного доступа</td><td>Пользователь видит пэйволл.</td><td>Понять, за что он платит и почему триал имеет смысл.</td><td>Если пэйволл появляется до получения ценности, он воспринимается как препятствие.</td><td>Показывать пэйволл после онбординга и при создании третьей заметки.</td></tr>
             </tbody>
-          </table>
+              </table>
+            </div>
+          </div>
+          <div class="expandable-table__control">
+            <button class="table-toggle" type="button" aria-expanded="false" aria-controls="cjm-table-content">
+              <span data-table-toggle-label>Показать больше</span>
+              <span class="table-toggle__icon" aria-hidden="true"></span>
+            </button>
+          </div>
         </div>
 
         <blockquote class="insight-card cjm-insight">До создания заметки пользователь сравнивает NoteOn с быстрыми привычными действиями. Поэтому первый шаг должен быть очень простым. Во время обработки материала появляется другой риск — ожидание. Экран статуса обработки должен поддерживать ощущение контроля и объяснять, какой результат создаётся.</blockquote>

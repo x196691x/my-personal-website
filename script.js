@@ -39,6 +39,22 @@ function preventHangingWords(root) {
 
 document.querySelectorAll(".site-header, main").forEach(preventHangingWords);
 
+document.querySelectorAll("[data-expandable-table]").forEach((tableBlock) => {
+  const button = tableBlock.querySelector(".table-toggle");
+  const label = tableBlock.querySelector("[data-table-toggle-label]");
+
+  if (!button || !label) return;
+
+  button.addEventListener("click", () => {
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    const nextExpandedState = !isExpanded;
+
+    tableBlock.classList.toggle("is-expanded", nextExpandedState);
+    button.setAttribute("aria-expanded", String(nextExpandedState));
+    label.textContent = nextExpandedState ? "Показать меньше" : "Показать больше";
+  });
+});
+
 const scrollRegions = document.querySelectorAll(".table-scroll");
 
 function updateScrollableState(region) {
