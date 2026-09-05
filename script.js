@@ -45,6 +45,24 @@ document.querySelectorAll("[data-expandable-table]").forEach((tableBlock) => {
 
   if (!button || !label) return;
 
+  // Overlapping masked layers approximate a continuous 0–24 px backdrop blur.
+  const control = button.parentElement;
+  const blurLayers = document.createDocumentFragment();
+
+  for (let step = 1; step <= 6; step += 1) {
+    const layer = document.createElement("span");
+    layer.className = "table-blur-layer";
+    layer.setAttribute("aria-hidden", "true");
+    layer.style.setProperty("--blur-radius", `${step * 4}px`);
+    layer.style.setProperty("--blur-start", `${((step - 1) / 7) * 100}%`);
+    layer.style.setProperty("--blur-solid", `${(step / 7) * 100}%`);
+    layer.style.setProperty("--blur-end", `${((step + 1) / 7) * 100}%`);
+    layer.style.setProperty("--blur-out", `${Math.min((step + 2) / 7, 1) * 100}%`);
+    blurLayers.append(layer);
+  }
+
+  control.prepend(blurLayers);
+
   button.addEventListener("click", () => {
     const isExpanded = button.getAttribute("aria-expanded") === "true";
     const nextExpandedState = !isExpanded;

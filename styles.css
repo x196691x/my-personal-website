@@ -456,10 +456,37 @@ img {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: linear-gradient(to bottom, rgb(255 255 255 / 0%), #fff 100%);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
   pointer-events: none;
+}
+
+.table-blur-layer,
+.expandable-table__control::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.table-blur-layer {
+  -webkit-backdrop-filter: blur(var(--blur-radius));
+  backdrop-filter: blur(var(--blur-radius));
+  -webkit-mask-image: linear-gradient(to bottom, transparent var(--blur-start), #000 var(--blur-solid), #000 var(--blur-end), transparent var(--blur-out));
+  mask-image: linear-gradient(to bottom, transparent var(--blur-start), #000 var(--blur-solid), #000 var(--blur-end), transparent var(--blur-out));
+}
+
+.table-blur-layer:nth-child(6) {
+  -webkit-mask-image: linear-gradient(to bottom, transparent var(--blur-start), #000 var(--blur-solid));
+  mask-image: linear-gradient(to bottom, transparent var(--blur-start), #000 var(--blur-solid));
+}
+
+.expandable-table__control::after {
+  content: "";
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0%), #fff 100%);
+}
+
+.expandable-table.is-expanded .table-blur-layer,
+.expandable-table.is-expanded .expandable-table__control::after {
+  display: none;
 }
 
 .table-scroll--embedded {
@@ -473,6 +500,8 @@ img {
 }
 
 .table-toggle {
+  position: relative;
+  z-index: 1;
   min-width: 223px;
   min-height: 53px;
   padding: 14px 24px;
