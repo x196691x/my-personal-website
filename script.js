@@ -45,7 +45,7 @@ document.querySelectorAll("[data-expandable-table]").forEach((tableBlock) => {
 
   if (!button || !label) return;
 
-  // Overlapping masked layers approximate a continuous 0–24 px backdrop blur.
+  // Overlapping masked layers approximate a continuous 0–8 px backdrop blur.
   const control = button.parentElement;
   const blurLayers = document.createDocumentFragment();
 
@@ -53,7 +53,7 @@ document.querySelectorAll("[data-expandable-table]").forEach((tableBlock) => {
     const layer = document.createElement("span");
     layer.className = "table-blur-layer";
     layer.setAttribute("aria-hidden", "true");
-    layer.style.setProperty("--blur-radius", `${step * 4}px`);
+    layer.style.setProperty("--blur-radius", `${(step / 6) * 8}px`);
     layer.style.setProperty("--blur-start", `${((step - 1) / 7) * 100}%`);
     layer.style.setProperty("--blur-solid", `${(step / 7) * 100}%`);
     layer.style.setProperty("--blur-end", `${((step + 1) / 7) * 100}%`);
