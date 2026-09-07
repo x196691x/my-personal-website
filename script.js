@@ -106,3 +106,69 @@ scrollRegions.forEach((region) => {
 window.addEventListener("resize", () => {
   scrollRegions.forEach(updateScrollableState);
 });
+
+const imageLightbox = document.querySelector(".image-lightbox");
+
+if (imageLightbox) {
+  const enlargedImage = imageLightbox.querySelector(".image-lightbox__image");
+  const closeButton = imageLightbox.querySelector(".image-lightbox__close");
+  let imageTrigger = null;
+  let savedScrollY = 0;
+  let backgroundElements = [];
+
+  // Only case illustrations are zoomable; the cover and UI icons stay unchanged.
+  document.querySelectorAll(".case-article .case-image").forEach((image, index) => {
+    if (index === 0) return;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "case-image-trigger";
+    button.setAttribute("aria-label", `Увеличить: ${image.alt}`);
+    button.setAttribute("aria-haspopup", "dialog");
+    image.before(button);
+    button.append(image);
+
+    button.addEventListener("click", () => {
+      imageTrigger = button;
+      savedScrollY = window.scrollY;
+      enlargedImage.src = image.currentSrc || image.src;
+      enlargedImage.alt = image.alt;
+      document.documentElement.style.setProperty("--lightbox-scroll-top", `-${savedScrollY}px`);
+      document.documentElement.classList.add("lightbox-open");
+      backgroundElements = [...document.body.children].filter(
+        (element) => element !== imageLightbox && !element.inert && element.tagName !== "SCRIPT"
+      );
+      backgroundElements.forEach((element) => { element.inert = true; });
+      imageLightbox.hidden = false;
+      closeButton.focus({ preventScroll: true });
+    });
+  });
+
+  closeButton.addEventListener("click", closeImageLightbox);
+  imageLightbox.addEventListener("click", (event) => {
+    if (event.target === imageLightbox) closeImageLightbox();
+  });
+
+  imageLightbox.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeImageLightbox();
+    } else if (event.key === "Tab") {
+      // The close button is the only focusable control in the dialog.
+      event.preventDefault();
+      closeButton.focus({ preventScroll: true });
+    }
+  });
+
+  function closeImageLightbox() {
+    if (imageLightbox.hidden) return;
+    imageLightbox.hidden = true;
+    backgroundElements.forEach((element) => { element.inert = false; });
+    document.documentElement.classList.remove("lightbox-open");
+    document.documentElement.style.removeProperty("--lightbox-scroll-top");
+    window.scrollTo({ top: savedScrollY, behavior: "instant" });
+    imageTrigger?.focus({ preventScroll: true });
+    enlargedImage.removeAttribute("src");
+    enlargedImage.alt = "";
+  }
+}

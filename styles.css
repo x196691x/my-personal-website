@@ -275,6 +275,106 @@ img {
   aspect-ratio: 2688 / 2145;
 }
 
+.case-image-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--card-radius);
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.case-image-trigger:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
+}
+
+html.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox-open body {
+  position: fixed;
+  top: var(--lightbox-scroll-top);
+  width: 100%;
+}
+
+.image-lightbox {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 40px 80px;
+  border: 0;
+  background: rgb(23 25 26 / 44%);
+  -webkit-backdrop-filter: blur(32px);
+  backdrop-filter: blur(32px);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.image-lightbox:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-lightbox__image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 32px 48px rgb(0 0 0 / 6%));
+}
+
+.image-lightbox__close {
+  position: fixed;
+  z-index: 1;
+  top: 34px;
+  right: 34px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.image-lightbox__close img {
+  width: 32px;
+  height: 32px;
+}
+
+.image-lightbox__close:hover {
+  background: rgb(255 255 255 / 12%);
+}
+
+.image-lightbox__close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 639px) {
+  .image-lightbox {
+    padding: max(80px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+  }
+
+  .image-lightbox__close {
+    top: max(16px, env(safe-area-inset-top));
+    right: 16px;
+  }
+}
+
 @media (min-width: 1024px) {
   .overview-section { min-height: 324px; }
   .role-section { min-height: 529px; }
@@ -654,7 +754,7 @@ img {
   .competitor-findings { height: 576px; flex: none; }
   .competitor-findings > p:last-child { min-height: 216px; }
 
-  .design-home > .eyebrow + .case-image { margin-top: -1px; }
+  .design-home > .eyebrow + :is(.case-image, .case-image-trigger) { margin-top: -1px; }
 }
 
 .cjm-table th,
