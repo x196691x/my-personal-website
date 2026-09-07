@@ -128,6 +128,14 @@ if (imageLightbox) {
     image.before(button);
     button.append(image);
 
+    const zoomIcon = document.createElement("img");
+    zoomIcon.className = "case-image-zoom-icon";
+    zoomIcon.src = "assets/zoom-in.svg";
+    zoomIcon.alt = "";
+    zoomIcon.width = 24;
+    zoomIcon.height = 24;
+    button.append(zoomIcon);
+
     button.addEventListener("click", () => {
       imageTrigger = button;
       savedScrollY = window.scrollY;

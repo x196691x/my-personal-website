@@ -276,6 +276,7 @@ img {
 }
 
 .case-image-trigger {
+  position: relative;
   display: block;
   width: 100%;
   padding: 0;
@@ -283,6 +284,15 @@ img {
   border-radius: var(--card-radius);
   background: transparent;
   cursor: zoom-in;
+}
+
+.case-image-zoom-icon {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
 }
 
 .case-image-trigger:focus-visible {
@@ -353,10 +363,13 @@ html.lightbox-open {
 .image-lightbox__close img {
   width: 32px;
   height: 32px;
+  opacity: 0.65;
+  transition: opacity 180ms ease;
 }
 
-.image-lightbox__close:hover {
-  background: rgb(255 255 255 / 12%);
+.image-lightbox__close:hover img,
+.image-lightbox__close:focus-visible img {
+  opacity: 1;
 }
 
 .image-lightbox__close:focus-visible {
@@ -365,6 +378,11 @@ html.lightbox-open {
 }
 
 @media (max-width: 639px) {
+  .case-image-zoom-icon {
+    right: 16px;
+    bottom: 16px;
+  }
+
   .image-lightbox {
     padding: max(80px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
   }
