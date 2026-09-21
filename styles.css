@@ -897,7 +897,8 @@ html.lightbox-open {
 }
 
 .go-up {
-  padding-top: 64px;
+  margin-top: 10px;
+  padding-block: 80px 128px;
   display: flex;
   justify-content: center;
 }
