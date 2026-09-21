@@ -39,6 +39,11 @@ function preventHangingWords(root) {
 
 document.querySelectorAll(".site-header, main").forEach(preventHangingWords);
 
+document.querySelector("[data-go-up]")?.addEventListener("click", () => {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "instant" : "smooth" });
+});
+
 document.querySelectorAll("[data-expandable-table]").forEach((tableBlock) => {
   const button = tableBlock.querySelector(".table-toggle");
   const label = tableBlock.querySelector("[data-table-toggle-label]");

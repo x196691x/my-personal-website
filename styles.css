@@ -251,7 +251,7 @@ img {
 
 .case-main {
   padding-top: 10px;
-  padding-bottom: 128px;
+  padding-bottom: 0;
 }
 
 .case-article {
@@ -791,6 +791,43 @@ html.lightbox-open {
   margin-bottom: 24px;
 }
 
+.go-up {
+  padding-top: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.go-up__button {
+  width: 65px;
+  height: 65px;
+  padding: 20px;
+  border: 1px solid var(--ink);
+  border-radius: 200px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+
+.go-up__button img {
+  width: 24px;
+  height: 24px;
+  max-width: none;
+  transition: filter 180ms ease;
+}
+
+.go-up__button:hover,
+.go-up__button:focus-visible {
+  background: var(--ink);
+  outline: none;
+}
+
+.go-up__button:hover img,
+.go-up__button:focus-visible img {
+  filter: invert(1);
+}
+
 @media (max-width: 1023px) {
   :root {
     --page-gutter: 32px;
@@ -974,7 +1011,7 @@ html.lightbox-open {
 
   .case-main {
     padding-top: 20px;
-    padding-bottom: 72px;
+    padding-bottom: 0;
   }
 
   .case-article,
@@ -1038,5 +1075,7 @@ html.lightbox-open {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .telegram-link,
-  .project-card img { transition: none; }
+  .project-card img,
+  .go-up__button,
+  .go-up__button img { transition: none; }
 }
