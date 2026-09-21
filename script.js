@@ -44,6 +44,99 @@ document.querySelector("[data-go-up]")?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "instant" : "smooth" });
 });
 
+const caseNav = document.querySelector("[data-case-nav]");
+
+if (caseNav) {
+  const trigger = caseNav.querySelector(".case-nav__trigger");
+  const links = [...caseNav.querySelectorAll(".case-nav__link")];
+  const bars = [...caseNav.querySelectorAll(".case-nav__bar")];
+  const targets = links.map((link) => document.querySelector(link.hash));
+  let activeIndex = -1;
+  let scrollTicking = false;
+
+  function setNavOpen(isOpen) {
+    caseNav.classList.toggle("is-open", isOpen);
+    trigger.setAttribute("aria-expanded", String(isOpen));
+  }
+
+  function setActiveSection(index) {
+    if (index === activeIndex) return;
+    activeIndex = index;
+
+    links.forEach((link, linkIndex) => {
+      const isActive = linkIndex === index;
+      link.classList.toggle("is-active", isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+
+    bars.forEach((bar, barIndex) => {
+      bar.classList.toggle("is-active", barIndex === index);
+    });
+  }
+
+  function updateActiveSection() {
+    const activationPoint = window.scrollY + Math.min(window.innerHeight * 0.35, 320);
+    let nextIndex = 0;
+
+    targets.forEach((target, index) => {
+      if (target && target.offsetTop <= activationPoint) nextIndex = index;
+    });
+
+    setActiveSection(nextIndex);
+    scrollTicking = false;
+  }
+
+  trigger.addEventListener("click", () => {
+    setNavOpen(!caseNav.classList.contains("is-open"));
+  });
+
+  links.forEach((link, index) => {
+    link.addEventListener("click", (event) => {
+      const target = targets[index];
+      if (!target) return;
+
+      event.preventDefault();
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (index === 0) {
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "instant" : "smooth" });
+      } else {
+        target.scrollIntoView({ behavior: prefersReducedMotion ? "instant" : "smooth", block: "start" });
+      }
+
+      setActiveSection(index);
+      setNavOpen(false);
+      window.requestAnimationFrame(() => target.focus({ preventScroll: true }));
+    });
+  });
+
+  caseNav.addEventListener("focusout", () => {
+    window.requestAnimationFrame(() => {
+      if (!caseNav.contains(document.activeElement)) setNavOpen(false);
+    });
+  });
+
+  caseNav.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    setNavOpen(false);
+    trigger.focus();
+  });
+
+  window.addEventListener("scroll", () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(updateActiveSection);
+  }, { passive: true });
+
+  window.addEventListener("resize", updateActiveSection);
+  updateActiveSection();
+}
+
 document.querySelectorAll("[data-expandable-table]").forEach((tableBlock) => {
   const button = tableBlock.querySelector(".table-toggle");
   const label = tableBlock.querySelector("[data-table-toggle-label]");

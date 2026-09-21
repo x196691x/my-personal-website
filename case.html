@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260921-go-up">
+    <link rel="stylesheet" href="styles.css?v=20260921-case-nav-3">
   </head>
   <body class="case-page">
     <header class="site-header">
@@ -20,9 +20,30 @@
       </a>
     </header>
 
+    <nav class="case-nav" aria-label="Разделы кейса" data-case-nav>
+      <button class="case-nav__trigger" type="button" aria-label="Открыть навигацию по кейсу" aria-expanded="false" aria-controls="case-nav-panel">
+        <span class="case-nav__bar is-active" aria-hidden="true"></span>
+        <span class="case-nav__bar" aria-hidden="true"></span>
+        <span class="case-nav__bar" aria-hidden="true"></span>
+        <span class="case-nav__bar" aria-hidden="true"></span>
+        <span class="case-nav__bar" aria-hidden="true"></span>
+        <span class="case-nav__bar" aria-hidden="true"></span>
+        <span class="case-nav__bar" aria-hidden="true"></span>
+      </button>
+      <div class="case-nav__panel" id="case-nav-panel">
+        <a class="case-nav__link is-active" href="#case-description" aria-current="location">О проекте</a>
+        <a class="case-nav__link" href="#case-research">Исследование</a>
+        <a class="case-nav__link" href="#case-problem">Формулировка проблемы</a>
+        <a class="case-nav__link" href="#case-user-flow">User Flow</a>
+        <a class="case-nav__link" href="#case-design">Дизайн-решения</a>
+        <a class="case-nav__link" href="#case-development">Развитие продукта по версиям</a>
+        <a class="case-nav__link" href="#case-outcome">Итог</a>
+      </div>
+    </nav>
+
     <main class="case-main">
       <article class="case-article">
-        <h1 class="case-title">ИИ-инструмент<br>для создания заметок</h1>
+        <h1 class="case-title" id="case-description" tabindex="-1">ИИ-инструмент<br>для создания заметок</h1>
         <img class="case-image image-tall" src="assets/image_01.png" alt="Интерфейсы мобильного приложения NoteOn" width="2688" height="2145">
 
         <section class="content-section overview-section" aria-labelledby="overview-title">
@@ -53,7 +74,7 @@
           </ol>
         </section>
 
-        <h2 class="chapter-title">Исследование</h2>
+        <h2 class="chapter-title" id="case-research" tabindex="-1">Исследование</h2>
 
         <section class="content-section research-intro">
           <p>На старте было важно понять, как люди сейчас работают с информацией и почему существующие решения не всегда закрывают задачу.</p>
@@ -178,7 +199,7 @@
 
         <blockquote class="insight-card cjm-insight">До создания заметки пользователь сравнивает NoteOn с быстрыми привычными действиями. Поэтому первый шаг должен быть очень простым. Во время обработки материала появляется другой риск — ожидание. Экран статуса обработки должен поддерживать ощущение контроля и объяснять, какой результат создаётся.</blockquote>
 
-        <h2 class="chapter-title">Формулировка проблемы</h2>
+        <h2 class="chapter-title" id="case-problem" tabindex="-1">Формулировка проблемы</h2>
         <section class="content-section problem-section">
           <p>После исследования проблему можно было сформулировать так:</p>
           <blockquote class="insight-card">Люди постоянно сохраняют полезную информацию из разных источников, но у них нет простого способа быстро превратить её в короткий, понятный и пригодный для дальнейшего использования конспект.</blockquote>
@@ -191,7 +212,7 @@
           </ol>
         </section>
 
-        <h2 class="chapter-title">User Flow</h2>
+        <h2 class="chapter-title" id="case-user-flow" tabindex="-1">User Flow</h2>
         <section class="media-section user-flow-create">
           <p class="eyebrow">Создание заметки</p>
           <img class="case-image image-tall" src="assets/image_2.png?v=20260909" alt="User flow создания заметки" width="2688" height="2145">
@@ -205,7 +226,7 @@
           <p>Структура заметки позволяет доносить информацию последовательно, уменьшая когнитивную нагрузку. Пользователь сначала видит краткий итог и ключевые поинты, а если нужно — может детально ознакомиться с информацией в транскрипте.</p>
         </section>
 
-        <h2 class="chapter-title">Дизайн-решения</h2>
+        <h2 class="chapter-title" id="case-design" tabindex="-1">Дизайн-решения</h2>
         <section class="media-section design-onboarding">
           <p class="eyebrow">Онбординг</p>
           <img class="case-image image-tall" src="assets/image_6.png?v=20260909" alt="Экраны онбординга NoteOn" width="2688" height="2145">
@@ -243,7 +264,7 @@
           <img class="case-image" src="assets/image_13.png?v=20260909" alt="Дополнительный экран пэйволла NoteOn" width="2688" height="2100">
         </section>
 
-        <h2 class="chapter-title">Развитие продукта по версиям</h2>
+        <h2 class="chapter-title" id="case-development" tabindex="-1">Развитие продукта по версиям</h2>
         <section class="content-section version-mvp">
           <p class="eyebrow">MVP</p>
           <p>В первой версии мы сфокусировались на главной ценности.<br>В MVP вошли: создание заметки, хранение заметок, краткое обобщение, транскрипция, квизы и флеш-карты.</p>
@@ -269,7 +290,7 @@
         </section>
 
         <section class="outcome-section">
-          <h2 class="chapter-title">Итог</h2>
+          <h2 class="chapter-title" id="case-outcome" tabindex="-1">Итог</h2>
           <p>В результате NoteOn сформировался как продукт для студентов, ИТ-работников и продуктивных людей.</p>
           <p>Его задача — превратить объемную информацию в формат, с которым удобно работать дальше. Инструмент позволяет получить конспект от ИИ, запомнить новую информацию с помощью викторин и флеш-карт, и если нужно – отправить заметку другому человеку или скачать себе на устройство.</p>
           <p>Стоит отметить, что  рынок ИИ-суммаризаторов контента в итоге оказался высококонкурентным. Крупные продукты – такие как Zoom, Microsoft Teams, Google Meet быстро адаптировались к рынку и добавили функцию записи встреч с заметками от ИИ. До появления NoteOn, на рынке существовали устоявшиеся продукты для транскрибации и создания заметок, например Otter. Имея широким набор функций, NoteOn давал полезный результат, но не стал незаменимым инструментом для конкретной аудитории.</p>
@@ -290,6 +311,6 @@
       <img class="image-lightbox__image" alt="">
     </div>
 
-    <script src="script.js?v=20260921-go-up"></script>
+    <script src="script.js?v=20260921-case-nav-3"></script>
   </body>
 </html>

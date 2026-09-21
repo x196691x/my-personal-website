@@ -260,6 +260,111 @@ img {
   gap: 48px;
 }
 
+.case-title,
+.chapter-title {
+  scroll-margin-top: 161px;
+}
+
+.case-nav {
+  position: fixed;
+  z-index: 90;
+  top: 50%;
+  left: 48px;
+  width: 24px;
+  height: 158px;
+  transform: translateY(-50%);
+}
+
+.case-nav__trigger {
+  width: 24px;
+  height: 158px;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 120ms ease, visibility 120ms ease;
+}
+
+.case-nav__trigger:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 8px;
+  border-radius: 2px;
+}
+
+.case-nav__bar {
+  width: 24px;
+  height: 2px;
+  flex: 0 0 2px;
+  border-radius: 32px;
+  background: var(--line);
+  transition: background-color 160ms ease;
+}
+
+.case-nav__bar.is-active {
+  background: var(--ink);
+}
+
+.case-nav__panel {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 319px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fff;
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) translateX(-6px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+}
+
+.case-nav__link {
+  min-width: 100%;
+  color: var(--muted);
+  font-size: var(--small-size);
+  line-height: var(--small-line);
+  letter-spacing: -0.36px;
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+
+.case-nav__link:hover,
+.case-nav__link:focus-visible,
+.case-nav__link.is-active {
+  color: var(--ink);
+}
+
+.case-nav__link:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.case-nav:hover .case-nav__trigger {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.case-nav.is-open .case-nav__trigger {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.case-nav:hover .case-nav__panel,
+.case-nav.is-open .case-nav__panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
 .case-title {
   font-size: 64px;
   line-height: 1.16;
@@ -846,6 +951,10 @@ html.lightbox-open {
   .case-main {
     padding-top: 16px;
   }
+
+  .case-nav {
+    display: none;
+  }
 }
 
 @media (max-width: 639px) {
@@ -1077,5 +1186,9 @@ html.lightbox-open {
   .telegram-link,
   .project-card img,
   .go-up__button,
-  .go-up__button img { transition: none; }
+  .go-up__button img,
+  .case-nav__trigger,
+  .case-nav__bar,
+  .case-nav__panel,
+  .case-nav__link { transition: none; }
 }
