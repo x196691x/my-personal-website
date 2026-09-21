@@ -515,7 +515,7 @@ html.lightbox-open {
   .version-meetings { height: 613px; flex: none; }
   .version-sharing { height: 373px; flex: none; }
   .version-folders { height: 601px; flex: none; }
-  .outcome-section { height: 580px; flex: none; }
+  .outcome-section { flex: none; }
 
   .research-jtbd { height: 457px; flex: none; }
   .research-jtbd .insight-card { height: 156px; }
